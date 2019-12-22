@@ -2,6 +2,7 @@
 // min /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 // function to find smaller number
+
 function min(arg1, arg2) {
   // return smaller number
   return  Math.min(arg1, arg2);
@@ -13,30 +14,51 @@ function min(arg1, arg2) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function isEven(number) {
+       // check if number is negative, turn to positive
+       if  (number < 0 ) {
+           number = -number;
+       }
+       // if number is a zero return true
        if (number === 0) {
          return true;
+         //if number is 1 return false
        } else if (number === 1) {
          return false;
+         // otherwise recursive function to deduct 2 until number 1 or 0 
        } else {
-         isEven(number-2);
+        return isEven(number-2);
        }
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countChars() {
+function countChars(string, char) {
+    var outputNumber = 0;
+    for (var i = 0; i < string.length; i++){
+        if (string.charAt(i) === char ) {
+            outputNumber = outputNumber +1;
+        } 
+    } return outputNumber;
 
 }
-
+// should count number of specific character occurrences in string
 ////////////////////////////////////////////////////////////////////////////////
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countBs() {
-
+function countBs(string) {
+    var outputNumber = 0;
+    for (var i = 0; i < string.length; i++){
+        if (string.charAt(i) === "b" || string.charAt(i) === "B" ) {
+            outputNumber = outputNumber +1;
+        } 
+    } return outputNumber;
 }
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

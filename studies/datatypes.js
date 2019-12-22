@@ -34,7 +34,7 @@ var firstName = "Mary ";
 var lastName = "Miller";
 console.log(firstName);               // prints ==> Mary
 console.log(firstName + lastName);    // prints ==> Mary Miller
-console.log(firstName.length);        // prints ==> 4
+console.log(firstName.length);        // prints ==> 5
 console.log(firstName[2]);            // prints ==> r
 
 // 3. Boolean //
@@ -78,8 +78,6 @@ delete school.location;
 console.log(school);            // prints ==> {name: "Op Spark"}
 school.location = "New Orleans";
 console.log(school);      // {name: "Op Spark", location: "New Orleans"}
-
-
 
 // 6. Function //
 
@@ -144,3 +142,27 @@ console.log(y);     // prints ==> null
  * the data is stored. Complex data is copied by reference, a memory address and 
  * not the value itself.
  */
+ 
+ /* Copy by value
+ * Looking at the following example you might assume that logging firstName 
+ * would log Claire, since var firstName was set to hold var name, which then 
+ * was changed to Claire, but since primitive data is copied by value, var 
+ * firstName actually was never changed and still holds the value it was given 
+ * originally which is Maria.
+ */
+var name = "Maria";                
+var firstName = name;
+name = "Claire";
+console.log(name);           // "Claire"
+console.log(firstName);      // "Maria" 
+
+/* Copy by reference
+ * Complex data types store data by a memory address, for that reason in the
+ * following example the herName variable now also holds the name Carol, since
+ * the data at the memory address to which its reference points was changed.
+ */
+var herName = {  firstName: "Gina" };
+var person = herName;
+herName.firstName = "Carol";
+console.log(herName.firstName); // "Carol"
+console.log(person.firstName);  // "Carol"

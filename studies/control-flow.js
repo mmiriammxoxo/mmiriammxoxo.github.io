@@ -30,7 +30,7 @@ if (time < 12) {
 // 2. Else-if //
 
 /* Else-if statements are used to specify a new condition if previous
- * conditions are false. 
+ * conditions are false and we can chain as many else-if statements as we like. 
  *
  * Syntax:
  *
@@ -54,8 +54,10 @@ if (time < 10) {
 
 // 3. Else //
 
-/* The else statement activates a block of code to run  
- * if previous conditions were not met.
+/* The else statement activates a block of code to run if previous conditions 
+ * were not met. The else statement acts like a default option and therefore 
+ * does not require a condition to be met. There can only be one else statement
+ * in the if, else-if, else - chain. 
  *
  * Syntax:
  *
@@ -74,13 +76,15 @@ if (time < 17) {
 
 // 4. Switch //
 
-/* Switch statements are generally used to select one of many code blocks
+/* Switch statements are generally used to select one of many code blocks   
  * to be executed. It takes in one value which is compared with the values 
  * of each switch case and if there is a match, the associated block of code 
- * is executed. The break statement associated with each case ensures makes the 
- * program break out of the switch case once the statement is executed, and 
+ * is executed. The break statement associated with each case ensures that the 
+ * program breaks out of the switch case once the statement is executed, and 
  * continues. A switch statement can also be set to run the same block of code  
  * for multiple cases.
+ * We may use a switch statement over an if/else-if chain when possible because it
+ * provides for a clearer and cleaner code if there is only one value to be met.
  *
  * Syntax:
  *

@@ -67,5 +67,6 @@ var fruits = ["banana", "grapes", "orange"];
  */
 var myDreamCar = {type: "Honda", model: "CRV", color: "pink", year: 2020};
   for (var key in myDreamCar) {
-   console.log(myDreamCar[key]);
-  }      // prints ==> Honda CRV pink 2020
+   console.log(key);             // prints ==> type model color year
+   console.log(myDreamCar[key]); // prints ==> Honda CRV pink 2020
+  }  

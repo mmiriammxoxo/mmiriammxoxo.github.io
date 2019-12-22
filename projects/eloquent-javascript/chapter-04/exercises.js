@@ -1,8 +1,52 @@
 ////////////////////////////////////////////////////////////////////////////////
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+/*
+function range(num1, num2, step) {
+    var allNums = [];      
+    if (num1 === num2) {   // if num1/num2 same, return empty[]
+        return allNums; 
+    } else if (num2 === undefined && step === undefined){
+        return allNums;    // if only one argument return empty[]
+      
+    } else if (step === undefined) {     // if step undefined
+        if (num2 > num1) {
+          for (var i = num1; i <=num2; i++){
+           allNums.push(i);
+          } return allNums;
+        } else if (num2 < num1) {
+          for (var i =num1; i >= num2; i--) {
+           allNums.push(i);
+          } return allNums;
+    }
+    } else {
+        if (num2 > num1) {                // if step provided
+          for (var i = num1; i <=num2; i= i+step){
+           allNums.push(i);
+          } return allNums;
+        } else if (num2 < num1) {
+          for (var i =num1; i >= num2; i=i-step) {
+           allNums.push(i);
+          } return allNums;
+    } }
+}*/
 
-function range() {
+
+function range(num1, num2) {
+    var allNums = [];
+    if (num1 === num2) {
+      return allNums; 
+    } else if(num2 === undefined){
+      return allNums=[num1];
+    } else if (num2 > num1) {
+    for (var i = num1; i <=num2;  i++){
+      allNums.push(i);
+    } return allNums;
+    } else if (num2 < num1) {
+      for (var i =num1; i >= num2; i--) {
+        allNums.push(i);
+      } return allNums;
+    }
 
 }
 
@@ -10,15 +54,24 @@ function range() {
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
+function sum(array) {
+    var result =array[0];
+    
+    for (var i=1; i< array.length; i++) {
+      result= result + array[i];
+    } return result;
+    }
 
-}
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
+function reverseArray(array) {
+  var reversed =[];
+    for(var i=array.length-1; i >=0; i--) {
+     reversed.push(array[i]);
+  } return reversed;
 
 }
 
