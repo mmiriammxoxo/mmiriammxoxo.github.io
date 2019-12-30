@@ -3,10 +3,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 // function to find smaller number
 
-function min(arg1, arg2) {
+function min(num1, num2) {
   // return smaller number
-  return  Math.min(arg1, arg2);
-
+  return  Math.min(num1, num2);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -36,8 +35,11 @@ function isEven(number) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function countChars(string, char) {
+    // declare output counter variable
     var outputNumber = 0;
+    // for-loop to loop through all characters of string
     for (var i = 0; i < string.length; i++){
+        // if string-char is same as given char then add 1 to counter variable
         if (string.charAt(i) === char ) {
             outputNumber = outputNumber +1;
         } 
@@ -50,11 +52,15 @@ function countChars(string, char) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function countBs(string) {
+    // declare counter variable
     var outputNumber = 0;
+    // for-loop to compare each string character 
     for (var i = 0; i < string.length; i++){
+        // if character is lowercase or uppercase 'b' then add 1 to counter 
         if (string.charAt(i) === "b" || string.charAt(i) === "B" ) {
             outputNumber = outputNumber +1;
         } 
+      // return number of counted b's
     } return outputNumber;
 }
 

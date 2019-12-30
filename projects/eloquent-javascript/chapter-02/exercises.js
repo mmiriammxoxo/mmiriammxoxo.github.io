@@ -5,9 +5,9 @@
 
 function triangles(number) {
   // declare output variable
-var print;
-// loop to loop through each line
-for (var i = 1; i <= number; i++) {
+  var print;
+  // loop to loop through each line
+  for (var i = 1; i <= number; i++) {
      // reset output variable to empty
      print="";
      // loop to add characters to print variable
@@ -15,9 +15,9 @@ for (var i = 1; i <= number; i++) {
          print=print + "#";
      // print each line one by one
      } console.log(print);
-};
-
+  }
 }
+
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -45,26 +45,26 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard(args) {
+function drawChessboard(size) {
 // define string variable for board output
 var chessB = "";
 //for loop to loop through rows
-for (var y = 0; y <args; y++) {
-  // for loop to loop through rows
-  for (var x =0; x <args; x++) {
+for (var y = 0; y <size; y++) {
+  // for loop to add line of characters
+  for (var x =0; x <size; x++) {
     // if even add/concatenate space
-    if ((x+y) % 2 == 0)  {
-      chessB += " ";
+    if ((x+y) % 2 === 0)  {
+      chessB = chessB + " ";
       // if uneven add #
     } else {
-      chessB += "#";
+      chessB = chessB + "#";
     }
   }
   chessB += "\n";
   // print chessB
 } console.log(chessB);
   
-}
+} 
 
 
 

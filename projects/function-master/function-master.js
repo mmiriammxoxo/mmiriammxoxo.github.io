@@ -36,19 +36,23 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-     // declare output variable
-     var stringVal = "";   
-        // for-in loop to loop through keys
-        for(var key in object) {
-            // check if value is a string
-            if (typeof object[key] === "string") {
-            // add value to output variable with added space
-            stringVal = stringVal + object[key] + " ";
-        } 
-         // return string trimmed of extra space
-        }return stringVal.trim(); 
-    
+  // declare output variable
+  var valueStr = "";
+  // for-in loop to loop through keys
+  for (var key in object) {
+      // check if value is a string and add
+      if (typeof object[key] === "string") {
+         valueStr = valueStr + object[key] + " ";
+      // if array, then for loop to extract and add each value
+      } else {
+         for (var i= 0; i < object[key].length; i++) {
+           valueStr = valueStr + object[key][i] +" ";
+      }
+    }
+    // trim and return value-string
+  } return valueStr.trim();
 }
+
 //valuesToString() : Should take an object and return all its string 
 // values in a string each separated with a space
 //////////////////////////////////////////////////////////////////////
@@ -56,19 +60,15 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    // check if collection is an array and return 'array' if so
-    if (Array.isArray(collection) === true) {
-        return "array";
-      // check if collection is a date or null value if so exit out
-    } else if (collection instanceof Date || collection === null) {
-        return;
-      // check if collection is an object, if so return 'object'
-    } if ( typeof collection === "object") {
-        return "object";
+    // if array is array, return 'array'
+    if (Array.isArray(collection)) {
+      return "array";
+      // else return 'object'
+    } else {
+      return "object";
     }
-    
-    
 }
+
 //: Should take one argument and return 'array' if its an array and 
 // 'object' if its an object
 //////////////////////////////////////////////////////////////////////
@@ -85,19 +85,17 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
 function capitalizeAllWords(string) {
-    // split string into array with all words 
+    // declare output string
     var outputStr = "";
+    // split string into array with all words 
     var wordsArr = string.split(' ');
-    // for-loop to switch all words first letters to caps
-    for (var i = 0; i <wordsArr.length; i++) {
-       wordsArr[i] = wordsArr[i].charAt(0).toUpperCase() + wordsArr[i].slice(1);
-       // concatenate output string with added space
-       outputStr = outputStr + wordsArr[i] + " ";
-       // trim and return output string 
-    } return outputStr.trim();
-       
+      // for-loop to switch all words to capitalized
+      for (var i = 0; i < wordsArr.length; i++) {
+      outputStr = outputStr + wordsArr[i].charAt(0).toUpperCase() + wordsArr[i].slice(1) + " ";
+    }
+    // return trimmed output string
+    return outputStr.trim();
 }
 
 // Should take a string of words and return a string 
@@ -105,25 +103,24 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
 function welcomeMessage(object) {
-       
-     // return welcome message with capitalized name and exclamation mark
-     return ("Welcome " + object.name[0].toUpperCase() + object.name.slice(1) +"!");
-        
-
+  // return welcome message with capitalized name and exclamation mark
+  return ("Welcome " + object.name.charAt(0).toUpperCase() + object.name.slice(1) + "!");
 }
+
 //welcomeMessage() : Should take an object with a name 
 // property and return 'Welcome <Name>!'
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+
 function profileInfo(object) {
     // return name capitalized + is a + species capitalized - message
     return object.name[0].toUpperCase() + object.name.slice(1) +" is a " + object.species[0].toUpperCase() + object.species.slice(1);
 
 }
+
 //ProfileInfo() : Should take an object with a name and a species 
 // and return '<Name> is a <Species>'
 //////////////////////////////////////////////////////////////////////
@@ -185,9 +182,10 @@ function isFriend(name, object) {
         return true;
     // all other cases return false
     } else {
-        return false;
+      return false;
     }
-}
+} 
+
 //Should take a name and an object and return true if <name> is a friend 
 // of <object> and false otherwise
 
@@ -196,24 +194,22 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-    // declare output array for non friends
+    // declare output array for non-friends
     var friendsArray =[];
-            // for loop to loop through array to compare each name
-            for (var i =0; i <array.length; i++) {
-            // declare var person to hold name to be compared
-            var person = array[i];
-            // if that persons friendslist does not include the name and it is 
-            // not his name then push the name into the output list
-            if (!person.friends.includes(name) && person.name !== name ){
-          friendsArray.push(person.name);
-      } 
-    } 
-// return list of people <name> isnt friends with
-return friendsArray;
-    
+    // for loop to loop through array to compare each name
+    for (var i =0; i <array.length; i++) {
+       // declare var person to hold name to be compared
+       var person = array[i];
+       // if that persons friendslist does not include the name and it is 
+       // not his name then push the name into the output list
+       if (!person.friends.includes(name) && person.name !== name ){
+       friendsArray.push(person.name);
+       } 
+    } // return list of people <name> isnt friends with
+    return friendsArray;
 }
 // Should take a name and a list of people, and return a list of all the 
-// names that <name> is not friends with   [friend1, friend2]
+// names that <name> is not friends with  
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -233,11 +229,13 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-    // for loop to delete each property of object that's listed in input array
-    for (var i=0; i < array.length; i++) {
-        delete object[array[i]];
+    // for-in loop to loop through object keys
+    for (var key in object) {
+    // if key included in given array remove key property
+      if (array.includes(key)) {
+        delete object[key];
+      }
     }
-
 }
 
 //removeProperties() : Should take an object and an array of strings. 
@@ -247,13 +245,12 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-     // array with all doubles removed
-     let noDoubles = [...new Set(array)];  
+     // use new Set method to remove all duplicates from array
+     let noDuplArr = [...new Set(array)];  
      // return output array
-     return noDoubles;
-        
-           
+     return noDuplArr;
 }
+
 //Should take an array and return an array with all the duplicates removed
 
 //////////////////////////////////////////////////////////////////////
