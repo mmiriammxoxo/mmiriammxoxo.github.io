@@ -127,7 +127,7 @@ _.last = function(array, number){
         return [];
     // check if number is not provided or not number data type
     } else if (number === undefined || typeof number !== "number") {
-        // if so return -1
+        // if so return last element
         return array[array.length-1];
       // if number is greater than array length then return entire array
     } else if ( array.length < number) {
