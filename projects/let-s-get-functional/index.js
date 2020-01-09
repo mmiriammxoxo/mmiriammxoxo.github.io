@@ -243,7 +243,6 @@ var topThreeTags = function(array){
     var topTags =[maxTag1, maxTag2, maxTag3];
     return topTags; 
 };
-    
 
 // gender count, output: male/female/non-binary object using reduce
 var genderCount = function(array){
